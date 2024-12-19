@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Book List</h1>
+<!-- Form to search by ID -->
+<form action="/books/searchById" method="get">
+    <div>
+        <label for="id">Search by ID:</label>
+        <input type="text" id="id" name="id" placeholder="Search by ID">
+        <button type="submit">Search</button>
+    </div>
+</form>
+<!-- Form to search by Title -->
+<form action="/books/searchByTitle" method="get">
+    <div>
+        <label for="title">Search by Title:</label>
+        <input type="text" id="title" name="title" placeholder="Search by Title">
+        <button type="submit">Search</button>
+    </div>
+</form>
+<ul>
+    <li th:each="book : ${books}">
+        <span th:text="${book.title}">Title</span> -
+        <span th:text="${book.author}">Author</span> -
+        <span th:text="${book.price}">Price</span>
+        <a th:href="@{/books/update/{id}(id=${book.id})}">Edit</a>
+        <a th:href="@{/books/delete/{id}(id=${book.id})}">Delete</a>
+    </li>
+</ul>
+<a href="/books/create">Add New Book</a>
+</body>
+</html>

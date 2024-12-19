@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Book List</h1>
+<ul>
+    <!-- Iterate over the "books" model attribute -->
+    <li th:each="book : ${books}">
+        <span th:text="${book.title}">Title</span> -
+        <span th:text="${book.author}">Author</span> -
+        <span th:text="${book.price}">Price</span>
+        <a th:href="@{/books/update/{id}(id=${book.id})}">Edit</a>
+        <a th:href="@{/books/delete/{id}(id=${book.id})}">Delete</a>
+    </li>
+</ul>
+<a href="/books/create">Add New Book</a>
+</body>
+</html>
