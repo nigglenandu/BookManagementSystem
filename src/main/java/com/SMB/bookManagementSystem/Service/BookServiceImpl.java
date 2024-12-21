@@ -40,6 +40,7 @@ public class BookServiceImpl implements IServiceBook {
             Book bookToUpdate = bookOpt.get();
             bookToUpdate.setTitle(book.getTitle());
             bookToUpdate.setAuthor(book.getAuthor());
+            bookToUpdate.setPrice(book.getPrice());
             repositoryBook.save(bookToUpdate);
             return true;
         } else {
