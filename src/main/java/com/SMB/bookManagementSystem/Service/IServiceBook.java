@@ -14,7 +14,7 @@ public interface IServiceBook {
 
     List<Book> getAllBooksByTitle(String title);
 
-    Book addBook(Book book);
+    void addBook(Book book);
 
     boolean updateBookById(Long id, Book book);
 
